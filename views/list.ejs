@@ -1,0 +1,31 @@
+<%- include("header")-%>
+<div class="box" id="heading">
+      <h1><%= ListDay %></h1>
+</div>
+
+<div class="box">
+
+  <% ListItem.forEach(function(item){%>
+    <form action="/delte" method="post">
+    <div class="item">
+      <input id="blockprev" type="checkbox" onChange="this.form.submit()" name="todelete" value="<%= item._id %>" >
+        <p><%= item.name %></p>
+    </div>
+    <input type="hidden" name="listName" value="<%= ListDay %>"></input>
+  </form>
+    <% }) %>
+
+
+ 
+
+<form class="item" action="/" method="post">
+
+  <input type="text" name="newitem" value="" class="inputwork" placeholder="New Item" autocomplete="off">
+  <button id="btblk" type="submit" name="list" value="<%= ListDay %>">+</button>
+</form>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="JavaScript/blck.js" charset="utf-8"></script>
+<%- include("footer")-%>
